@@ -1,16 +1,19 @@
 variable "api_token" {
   description = "The Cloudflare API token."
   type        = string
+  sensitive   = true
 }
 
 variable "newrelic_account_id" {
   description = "The NewRelic Account ID."
   type        = string
+  sensitive   = true
 }
 
 variable "newrelic_api_key" {
   description = "The NewRelic API token."
   type        = string
+  sensitive   = true
 }
 
 variable "job_name" {
