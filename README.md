@@ -1,5 +1,6 @@
-# terraform-module-template
-Template for Terraform modules
+# terraform-cloudflare-logpush-newrelic
+
+Terraform module to create logpush job for NewRelic
 
 [![lint](https://github.com/flaconi/terraform-cloudflare-logpush-newrelic/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-cloudflare-logpush-newrelic/actions?query=workflow%3Alint)
 [![test](https://github.com/flaconi/terraform-cloudflare-logpush-newrelic/workflows/test/badge.svg)](https://github.com/flaconi/terraform-cloudflare-logpush-newrelic/actions?query=workflow%3Atest)
