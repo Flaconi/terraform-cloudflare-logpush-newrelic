@@ -93,6 +93,7 @@ variable "destination" {
       api_key        = optional(string)
     }), {})
   })
+  default = {}
   validation {
     condition     = var.destination.newrelic.create_api_key == true || (var.destination.newrelic.create_api_key == false && length(compact([var.destination.newrelic.api_key, ""])) > 0)
     error_message = "Newrelic Api-Key is missing."

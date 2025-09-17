@@ -65,23 +65,6 @@ Description: Cloudflare domain to fetch the zone id
 
 Type: `string`
 
-### <a name="input_destination"></a> [destination](#input\_destination)
-
-Description: Destination specific settings
-
-Type:
-
-```hcl
-object({
-    wait_before = optional(string)
-    newrelic = optional(object({
-      endpoint       = optional(string, "https://log-api.newrelic.com/log/v1")
-      create_api_key = optional(bool, true)
-      api_key        = optional(string)
-    }), {})
-  })
-```
-
 ## Optional Inputs
 
 The following input variables are optional (have default values):
@@ -163,6 +146,25 @@ object({
     # Floating number to specify sampling rate. Sampling is applied on top of filtering, and regardless of the current sample_interval of the data
     sample_rate      = optional(number)
     timestamp_format = optional(string, "rfc3339")
+  })
+```
+
+Default: `{}`
+
+### <a name="input_destination"></a> [destination](#input\_destination)
+
+Description: Destination specific settings
+
+Type:
+
+```hcl
+object({
+    wait_before = optional(string)
+    newrelic = optional(object({
+      endpoint       = optional(string, "https://log-api.newrelic.com/log/v1")
+      create_api_key = optional(bool, true)
+      api_key        = optional(string)
+    }), {})
   })
 ```
 
