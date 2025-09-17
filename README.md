@@ -41,12 +41,6 @@ Terraform module to create logpush job for NewRelic
 
 The following input variables are required:
 
-### <a name="input_api_token"></a> [api\_token](#input\_api\_token)
-
-Description: The Cloudflare API token.
-
-Type: `string`
-
 ### <a name="input_name"></a> [name](#input\_name)
 
 Description: The name of the job to create
