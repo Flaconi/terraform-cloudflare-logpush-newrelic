@@ -18,9 +18,9 @@ Terraform module to create logpush job for NewRelic
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.52.0 |
-| <a name="provider_newrelic"></a> [newrelic](#provider\_newrelic) | ~> 3.34 |
-| <a name="provider_time"></a> [time](#provider\_time) | ~> 0.11 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 5.10 |
+| <a name="provider_newrelic"></a> [newrelic](#provider\_newrelic) | ~> 3.69 |
+| <a name="provider_time"></a> [time](#provider\_time) | ~> 0.13 |
 
 <!-- TFDOCS_PROVIDER_END -->
 
@@ -30,9 +30,9 @@ Terraform module to create logpush job for NewRelic
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.52.0 |
-| <a name="requirement_newrelic"></a> [newrelic](#requirement\_newrelic) | ~> 3.34 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.11 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.10 |
+| <a name="requirement_newrelic"></a> [newrelic](#requirement\_newrelic) | ~> 3.69 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.13 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
@@ -44,6 +44,12 @@ The following input variables are required:
 ### <a name="input_api_token"></a> [api\_token](#input\_api\_token)
 
 Description: The Cloudflare API token.
+
+Type: `string`
+
+### <a name="input_name"></a> [name](#input\_name)
+
+Description: The name of the job to create
 
 Type: `string`
 
@@ -59,21 +65,9 @@ Description: The NewRelic API token.
 
 Type: `string`
 
-### <a name="input_job_name"></a> [job\_name](#input\_job\_name)
-
-Description: The name of the job to create
-
-Type: `string`
-
 ### <a name="input_domain"></a> [domain](#input\_domain)
 
 Description: Cloudflare domain to fetch the zone id
-
-Type: `string`
-
-### <a name="input_logpull_options"></a> [logpull\_options](#input\_logpull\_options)
-
-Description: Configuration string for requested fields and timestamp formats
 
 Type: `string`
 
@@ -120,15 +114,7 @@ Description: Filter to include/exclude events
 
 Type: `map(any)`
 
-Default: `{}`
-
-### <a name="input_frequency"></a> [frequency](#input\_frequency)
-
-Description: Frequency of logs being pushed
-
-Type: `string`
-
-Default: `"high"`
+Default: `null`
 
 ### <a name="input_kind"></a> [kind](#input\_kind)
 
@@ -136,7 +122,7 @@ Description: The kind of job to create
 
 Type: `string`
 
-Default: `""`
+Default: `null`
 
 ### <a name="input_max_upload_bytes"></a> [max\_upload\_bytes](#input\_max\_upload\_bytes)
 
@@ -162,6 +148,32 @@ Type: `number`
 
 Default: `1000`
 
+### <a name="input_output_options"></a> [output\_options](#input\_output\_options)
+
+Description: Configuration string for requested fields and timestamp formats
+
+Type:
+
+```hcl
+object({
+    batch_prefix     = optional(string)
+    batch_suffix     = optional(string)
+    cve_2021_44228   = optional(bool, false)
+    field_delimiter  = optional(string)
+    field_names      = optional(list(string))
+    output_type      = optional(string, "ndjson")
+    record_delimiter = optional(string)
+    record_prefix    = optional(string)
+    record_suffix    = optional(string)
+    record_template  = optional(string)
+    # Floating number to specify sampling rate. Sampling is applied on top of filtering, and regardless of the current sample_interval of the data
+    sample_rate      = optional(number)
+    timestamp_format = optional(string, "rfc3339")
+  })
+```
+
+Default: `{}`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->
@@ -169,7 +181,7 @@ Default: `1000`
 
 | Name | Description |
 |------|-------------|
-| <a name="output_logpush_job_id"></a> [logpush\_job\_id](#output\_logpush\_job\_id) | The id of the created jogpush job |
+| <a name="output_job"></a> [job](#output\_job) | A created logpush job |
 
 <!-- TFDOCS_OUTPUTS_END -->
 

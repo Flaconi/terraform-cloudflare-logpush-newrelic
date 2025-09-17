@@ -16,16 +16,16 @@ resource "time_sleep" "cloudflare_logpush_job_before" {
 }
 
 resource "cloudflare_logpush_job" "this" {
-  depends_on                  = [time_sleep.cloudflare_logpush_job_before]
+  enabled                     = var.enabled
   dataset                     = var.dataset
   destination_conf            = local.destination_conf
-  enabled                     = var.enabled
-  filter                      = length(var.filter) > 0 ? jsonencode(var.filter) : null
+  filter                      = var.filter != null ? jsonencode(var.filter) : null
   kind                        = var.kind
-  logpull_options             = var.logpull_options
   max_upload_bytes            = var.max_upload_bytes
   max_upload_interval_seconds = var.max_upload_interval_seconds
   max_upload_records          = var.max_upload_records
-  name                        = var.job_name
-  zone_id                     = data.cloudflare_zone.this.id
+  name                        = var.name
+  output_options              = local.output_options
+  zone_id                     = local.zone_id
+  depends_on                  = [time_sleep.cloudflare_logpush_job_before]
 }
