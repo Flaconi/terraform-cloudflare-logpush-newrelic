@@ -1,9 +1,3 @@
-variable "api_token" {
-  description = "The Cloudflare API token."
-  type        = string
-  sensitive   = true
-}
-
 variable "name" {
   description = "The name of the job to create"
   type        = string
