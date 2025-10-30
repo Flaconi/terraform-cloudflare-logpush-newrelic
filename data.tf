@@ -1,3 +1,4 @@
 data "cloudflare_zones" "this" {
-  name = var.domain
+  count = var.domain != null ? 1 : 0
+  name  = var.domain
 }

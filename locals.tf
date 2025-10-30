@@ -1,5 +1,4 @@
 locals {
-  zone_id = lookup(data.cloudflare_zones.this.result[0], "id")
   destination_conf = format(
     "%s?Api-Key=%s&format=cloudflare",
     var.destination.newrelic.endpoint,

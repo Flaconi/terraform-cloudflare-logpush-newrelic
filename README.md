@@ -59,15 +59,25 @@ Description: The NewRelic API token.
 
 Type: `string`
 
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
 ### <a name="input_domain"></a> [domain](#input\_domain)
 
 Description: Cloudflare domain to fetch the zone id
 
 Type: `string`
 
-## Optional Inputs
+Default: `null`
 
-The following input variables are optional (have default values):
+### <a name="input_account_id"></a> [account\_id](#input\_account\_id)
+
+Description: Cloudflare account id
+
+Type: `string`
+
+Default: `null`
 
 ### <a name="input_dataset"></a> [dataset](#input\_dataset)
 

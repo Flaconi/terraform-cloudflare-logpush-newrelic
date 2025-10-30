@@ -18,6 +18,13 @@ variable "newrelic_api_key" {
 variable "domain" {
   description = "Cloudflare domain to fetch the zone id"
   type        = string
+  default     = null
+}
+
+variable "account_id" {
+  description = "Cloudflare account id"
+  type        = string
+  default     = null
 }
 
 variable "dataset" {
