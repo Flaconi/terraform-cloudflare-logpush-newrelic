@@ -3,7 +3,7 @@ resource "newrelic_api_access_key" "this" {
   account_id  = var.newrelic_account_id
   key_type    = "INGEST"
   ingest_type = "LICENSE"
-  name        = "Cloudflare logpush key for ${var.domain}"
+  name        = "Cloudflare logpush key for ${var.name}"
   notes       = "The key used for pushing logs from Cloudflare"
 }
 
@@ -26,6 +26,14 @@ resource "cloudflare_logpush_job" "this" {
   max_upload_records          = var.max_upload_records
   name                        = var.name
   output_options              = local.output_options
-  zone_id                     = local.zone_id
+  account_id                  = var.account_id
+  zone_id                     = var.domain != null ? lookup(data.cloudflare_zones.this[0].result[0], "id") : null
   depends_on                  = [time_sleep.cloudflare_logpush_job_before]
+
+  lifecycle {
+    precondition {
+      condition     = var.domain != null || var.account_id != null
+      error_message = "Domain or account_id must be provided."
+    }
+  }
 }
