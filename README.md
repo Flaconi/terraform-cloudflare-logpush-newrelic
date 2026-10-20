@@ -18,7 +18,7 @@ Terraform module to create logpush job for NewRelic
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 5.10 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 5.28 |
 | <a name="provider_newrelic"></a> [newrelic](#provider\_newrelic) | ~> 3.69 |
 | <a name="provider_time"></a> [time](#provider\_time) | ~> 0.13 |
 
@@ -30,7 +30,7 @@ Terraform module to create logpush job for NewRelic
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.10 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.28 |
 | <a name="requirement_newrelic"></a> [newrelic](#requirement\_newrelic) | ~> 3.69 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.13 |
 
