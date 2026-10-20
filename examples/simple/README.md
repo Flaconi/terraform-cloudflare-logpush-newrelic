@@ -8,7 +8,7 @@ Create a simple logpush job for newrelic
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.10 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.28 |
 | <a name="requirement_newrelic"></a> [newrelic](#requirement\_newrelic) | ~> 3.69 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.13 |
 
