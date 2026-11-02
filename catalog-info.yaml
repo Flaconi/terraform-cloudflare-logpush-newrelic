@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-cloudflare-logpush-newrelic
+  description: >
+    This module will create Cloudflare Logpush Jobs for NewRelic
+  annotations:
+    github.com/project-slug: Flaconi/terraform-cloudflare-logpush-newrelic
+  tags:
+    - terraform
+    - cloudflare
+    - newrelic
+    - logpush
+
+spec:
+  type: library
+  lifecycle: production
+  owner: group:platform
+  providesApis: []
